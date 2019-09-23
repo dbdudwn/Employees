@@ -20,7 +20,7 @@
 </head>
 <body class="container">
 	
-	<h1 class="text-center">부서 목록</h1>
+	<h1 class="text-center text-success">부서 목록</h1>
 	<table class="table table-bordered text-center">
 		<thead class="thead-dark">
 			<tr>
@@ -31,14 +31,14 @@
 			<tbody> <!-- forEach는 for문과 똑같음 var=담을변수이름 , items=값 -->
 				<c:forEach var="departments" items="${list}">
 					<tr>
-						<td>${departments.deptNo}</td>
-						<td>${departments.deptName}</td>
+						<th>${departments.deptNo}</th>
+						<th>${departments.deptName}</th>
 					</tr>
 				</c:forEach>
 			</tbody>
 	</table>
 	<div>
-		<a href="${pageContext.request.contextPath}/">홈</a>
+		<a class="nav-link" href="${pageContext.request.contextPath}/">홈</a>
 	</div>
 </body>
 </html>

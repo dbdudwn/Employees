@@ -17,10 +17,13 @@
 	.right{	text-align: right;}
 </style>
 <meta charset="UTF-8">
-<title>DepartmentsList</title>
+<title>EmployeesList</title>
 </head>
 <body class="container">
-	<h1 class="text-center">사원 목록</h1>
+	<h1 class="text-center text-success">사원 목록</h1>
+	<div>
+		<a class="nav-link" href="${pageContext.request.contextPath}/">홈</a>
+	</div>
 	<form method ="get" action="${pageContext.request.contextPath}/employees/getEmployeesList">
 	<select name ="limit"  class= "custom-select mb-3 text-center">
 		<option value="10">10</option>
@@ -31,7 +34,7 @@
 		<option value="60">60</option>
 	</select>
 	<button type="submit" class="btn btn-outline-success right">보기</button>
-	<table class="table table-bordered text-center">
+	<table class="table table-bordered">
 		<thead class="thead-dark" >
 			<tr>
 				<th>사원 번호</th>
@@ -56,8 +59,5 @@
 		</tbody>
 	</table>
 	</form>
-	<div>
-		<a href="${pageContext.request.contextPath}/">홈</a>
-	</div>
 </body>
 </html>

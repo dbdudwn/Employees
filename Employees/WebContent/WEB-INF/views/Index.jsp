@@ -22,64 +22,64 @@
 <title>Index.jsp</title>
 </head>
 <body class="container">
-	<h1 class="text-center">Index</h1>
+	<h1 class="text-center text-success">Index</h1>
 	<h2 class="text-center">테이블 정보</h2>
-	<div>
+
 		<table class="table table-bordered text-center">
 			<thead class="thead-dark">
 				<tr>
-					<td>테이블이름</td>
-					<td>전체 행의 수</td>
+					<th>테이블이름</th>
+					<th>전체 행의 수</th>
 				</tr>
 			</thead>
-			<thead>
+			<tbody >
 				<tr>
-					<td>Departments</td>
-					<td>${DepartmentsRowCount}</td>
+					<th>Departments</th>
+					<th>${DepartmentsRowCount}</th>
 				</tr>
 				<tr>
-					<td>Employees</td>
-					<td>${EmployeesRowCount}</td>
+					<th>Employees</th>
+					<th>${EmployeesRowCount}</th>
 				</tr>
 				<tr>
-					<td>Emp_manager</td>
-					<td>${DeptManagerRowCount}</td>
+					<th>Emp_manager</th>
+					<th>${DeptManagerRowCount}</th>
 				</tr>
 				<tr>
-					<td>Dept_emp</td>
-					<td>${DeptEmpRowCount}</td>
+					<th>Dept_emp</th>
+					<th>${DeptEmpRowCount}</th>
 				</tr>
 				<tr>
-					<td>Salaries</td>
-					<td>${SalariesRowCount}</td>
+					<th>Salaries</th>
+					<th>${SalariesRowCount}</th>
 				</tr>
 				<tr>
-					<td>Titles</td>
-					<td>${TitlesRowCount}</td>
+					<th>Titles</th>
+					<th>${TitlesRowCount}</th>
 				</tr>
-			</thead>
+			</tbody>
 		</table>
-	</div>
+
 	
 	<div>
 		<ul class="b">
-			<li><a href="${pageContext.request.contextPath}/departments/getDepartmentsList">부서 목록</a></li>
-			<li><a href="${pageContext.request.contextPath}/employees/getEmployeesList">사원 목록</a></li>	
+			<li><a class="nav-link" href="${pageContext.request.contextPath}/departments/getDepartmentsList">부서 목록</a></li>
+			<li><a class="nav-link" href="${pageContext.request.contextPath}/employees/getEmployeesList">사원 목록</a></li>	
 			<li>
 				정렬 -> FirstName 
-				<a href="${pageContext.request.contextPath}/employees/EmployeesListOrderBy?order=asc">오름차순↑</a>
-				<a href="${pageContext.request.contextPath}/employees/EmployeesListOrderBy?order=desc">내림차순↓</a>
+				<a class="nav-link" href="${pageContext.request.contextPath}/employees/EmployeesListOrderBy?order=asc">오름차순↑</a>
+				<a class="nav-link" href="${pageContext.request.contextPath}/employees/EmployeesListOrderBy?order=desc">내림차순↓</a>
 			</li>
 			<li>
 				정렬 -> LastName
-				<a href="${pageContext.request.contextPath}/employees/EmployeesListOrderBy?order=asc">오름차순↑</a>
-				<a href="${pageContext.request.contextPath}/employees/EmployeesListOrderBy?order=desc">내림차순↓</a>
+				<a class="nav-link" href="${pageContext.request.contextPath}/employees/EmployeesListOrderBy?order=asc">오름차순↑</a>
+				<a class="nav-link" href="${pageContext.request.contextPath}/employees/EmployeesListOrderBy?order=desc">내림차순↓</a>
 			</li>
 		</ul>
 	</div>
 	
 	<div>
-		EL ->	employees total Row Count :	${employeesRowCount} 
+		<h3>employees total Row Count :	${EmployeesRowCount} </h3>
 	</div>
 </body>
 </html>
