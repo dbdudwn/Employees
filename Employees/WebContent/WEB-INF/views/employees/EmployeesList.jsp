@@ -31,7 +31,7 @@
 		<option value="60">60</option>
 	</select>
 	<button type="submit" class="btn btn-outline-success right">보기</button>
-	<table class="table table-bordered">
+	<table class="table table-bordered text-center">
 		<thead class="thead-dark" >
 			<tr>
 				<th>사원 번호</th>
@@ -56,5 +56,8 @@
 		</tbody>
 	</table>
 	</form>
+	<div>
+		<a href="${pageContext.request.contextPath}/">홈</a>
+	</div>
 </body>
 </html>

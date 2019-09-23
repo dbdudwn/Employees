@@ -21,7 +21,7 @@
 <body class="container">
 	
 	<h1 class="text-center">부서 목록</h1>
-	<table class="table table-bordered">
+	<table class="table table-bordered text-center">
 		<thead class="thead-dark">
 			<tr>
 				<th>부서 번호</th>
@@ -37,5 +37,8 @@
 				</c:forEach>
 			</tbody>
 	</table>
+	<div>
+		<a href="${pageContext.request.contextPath}/">홈</a>
+	</div>
 </body>
 </html>
