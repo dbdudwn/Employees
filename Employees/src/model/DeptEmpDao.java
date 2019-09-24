@@ -2,8 +2,10 @@ package model;
 
 import java.sql.*;
 
-public class DeptEmpDao {
+import db.DBHelper;
 
+public class DeptEmpDao {
+	//전체 행을 출력하는 메소드
 	public int selectDeptEmpRowCount()  {
 		int count = 0;
 		Connection conn = null;
@@ -12,8 +14,7 @@ public class DeptEmpDao {
 		String sql = "select count(*) cnt from dept_emp";
 		
 		try {
-			Class.forName("org.mariadb.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/employees", "root", "java1234");
+			conn = DBHelper.getConnection(); //DBHelper클래스의 getConnection메소드를 conn에 복사
 			stmt = conn.prepareStatement(sql);
 			rs = stmt.executeQuery();
 			while(rs.next()) {
@@ -23,13 +24,7 @@ public class DeptEmpDao {
 		}catch (Exception e) {
 			e.printStackTrace();
 		}finally {
-			try {
-				conn.close();
-				stmt.close();
-				rs.close();
-			}catch(Exception e) {
-				e.printStackTrace();
-			}
+			DBHelper.close(rs, stmt, conn); //DBHelper클래스에 close 메소드호출
 		}
 		return count;
 		

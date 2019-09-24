@@ -3,11 +3,13 @@ import java.sql.*;
 import vo.*;
 import java.util.*;
 
+import db.DBHelper;
+
 public class DepartmentsDao {
 	public DepartmentsDao(){ //생성자 선언
 		
 	}
-	
+	//전체 행을 출력하는 메소드
 	public int selectDepartmentsRowCount(){
 		int count = 0;
 		Connection conn = null;
@@ -16,8 +18,7 @@ public class DepartmentsDao {
 		String sql = "select count(*) cnt from departments";
 		
 		try {
-			Class.forName("org.mariadb.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/employees", "root", "java1234");
+			conn = DBHelper.getConnection(); //DBHelper클래스의 getConnection메소드를 conn에 복사
 			stmt = conn.prepareStatement(sql);
 			rs = stmt.executeQuery();
 			while(rs.next()) {
@@ -27,13 +28,7 @@ public class DepartmentsDao {
 		}catch (Exception e) {
 			e.printStackTrace();
 		}finally {
-			try {
-				conn.close();
-				stmt.close();
-				rs.close();
-			}catch(Exception e) {
-				e.printStackTrace();
-			}
+			DBHelper.close(rs, stmt, conn); //DBHelper클래스에 close 메소드호출
 		}
 		return count;
 		
@@ -48,8 +43,7 @@ public class DepartmentsDao {
 		String sql = "select dept_no , dept_name from departments";
 		
 		try {
-			Class.forName("org.mariadb.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mariadb://localhost:3306/employees","root","java1234");
+			conn = DBHelper.getConnection(); //DBHelper클래스의 getConnection메소드를 conn에 복사
 			stmt = conn.prepareStatement(sql);
 			rs = stmt.executeQuery();
 			Departments departments;
@@ -63,14 +57,7 @@ public class DepartmentsDao {
 		}catch(Exception e) {
 			e.printStackTrace(); //예외를 강제로 출력
 		}finally {
-			try {
-				conn.close();
-				stmt.close();
-				rs.close();
-				
-			}catch(Exception e) {
-				e.printStackTrace(); //예외를 강제로 출력
-			}
+			DBHelper.close(rs, stmt, conn); //DBHelper클래스에 close 메소드호출
 		}
 		return list;
 	}
