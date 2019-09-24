@@ -75,6 +75,8 @@
 				<a class="nav-link" href="${pageContext.request.contextPath}/employees/EmployeesListOrderBy?order=asc">오름차순↑</a>
 				<a class="nav-link" href="${pageContext.request.contextPath}/employees/EmployeesListOrderBy?order=desc">내림차순↓</a>
 			</li>
+			<li><a href="${pageContext.request.contextPath}/titles/TitlesListDistinct">업무 목록(중복제거)</a></li>
+			<li><a href="${pageContext.request.contextPath}/salaries/SalariesStatistics">연봉 통계값 {count,sum,avg,max,min,std}</a></li>
 		</ul>
 	</div>
 	
