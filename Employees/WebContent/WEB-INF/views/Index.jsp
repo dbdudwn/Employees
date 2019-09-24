@@ -77,10 +77,16 @@
 			</li>
 			<li><a href="${pageContext.request.contextPath}/titles/TitlesListDistinct">업무 목록(중복제거)</a></li>
 			<li><a href="${pageContext.request.contextPath}/salaries/SalariesStatistics">연봉 통계값 {count,sum,avg,max,min,std}</a></li>
+			<li><a href="${pageContext.request.contextPath}/employees/EmployeesCountByGender">사원 수(Gender)</a></li>
+			<li><a href="${pageContext.request.contextPath}/departments/DepartmentsCountByDeptNo">부서별 사원수</a></li>
 		</ul>
-	</div>
-	
 	<div>
+		<form action="${pageContext.request.contextPath}/employees/EmployeesListBetween" method="post">
+			<input type ="number" name="begin"> ~ <input type ="number" name="end">
+			<button type="submit">사원 검색</button>
+			(${min} ~ ${max})
+		</form>
+	</div>
 		<h3>employees total Row Count :	${EmployeesRowCount} </h3>
 	</div>
 </body>
