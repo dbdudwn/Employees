@@ -3,7 +3,7 @@ package model;
 import java.sql.*;
 import java.util.*;
 import db.DBHelper;
-//views-> titles / salaries 폴더 및 jsp파일 추가
+
 public class TitlesDao {
 	//중복값 제거 출력 메소드
 		public List<String> selectTitlesListDistinct(){
