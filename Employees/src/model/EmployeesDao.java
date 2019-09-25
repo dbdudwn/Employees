@@ -9,7 +9,73 @@ public class EmployeesDao {
 	public EmployeesDao() { // 생성자 선언코드
 
 	}
-
+	//마지막 페이지 구하는 메소드
+		public int selectLastPage(int rowperPage) {
+			int lastPage = 0;
+			int cnt = 0;
+			Connection conn = null;
+			PreparedStatement stmt = null;
+			ResultSet rs = null;
+			String sql = "SELECT count(*) cnt from employees";
+			try {
+				conn = DBHelper.getConnection();
+				stmt = conn.prepareStatement(sql);
+				rs = stmt.executeQuery();
+				if(rs.next()) {
+					cnt = rs.getInt("cnt");
+				}
+				if(cnt%rowperPage != 0) {
+					lastPage = cnt/rowperPage+1;
+				}else {
+					lastPage = cnt/rowperPage;
+				}
+				
+			}catch(Exception e) {
+				e.printStackTrace();
+			}finally {
+				DBHelper.close(rs, stmt, conn);
+			}
+			
+			return lastPage;
+		}
+		
+		
+		
+		
+		// 페이징 메소드
+		public List<Employees> selectEmployeesByPage(int currentPage , int rowperPage) {
+			List<Employees> list = new ArrayList<Employees>();
+			Connection conn = null;
+			PreparedStatement stmt = null;
+			ResultSet rs = null;
+			String sql = "SELECT emp_no, birth_date , first_name, last_name, gender, hire_date from employees limit ?,?"; //?몇번부터 ,?몇개
+			try {
+				int startRow = (currentPage-1)*rowperPage;
+				conn = DBHelper.getConnection();
+				stmt = conn.prepareStatement(sql);
+				stmt.setInt(1, startRow);
+				stmt.setInt(2, rowperPage);
+				rs = stmt.executeQuery();
+				while(rs.next()) {
+				Employees employees = new Employees();
+					employees.setEmpNo(rs.getInt("emp_no"));
+					employees.setBirthDate(rs.getString("birth_date"));
+					employees.setFirstName(rs.getString("first_name"));
+					employees.setLastName(rs.getString("last_name"));
+					employees.setGender(rs.getString("gender"));
+					employees.setHireDate(rs.getString("hire_date"));
+					list.add(employees);
+				}
+				
+			}catch(Exception e) {
+				e.printStackTrace();
+			}finally {
+				DBHelper.close(rs, stmt, conn);
+			}
+			return list;
+		}
+		
+	
 	//사원의 성별 별 인원 수 출력 메소드
 	public List<Map<String , Object>> selectEMployeesCountGroupByGender() {
 		List<Map<String,Object>> list = new ArrayList<Map<String,Object>>();
