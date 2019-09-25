@@ -5,8 +5,7 @@
 <html>
 <head>
 
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
 <!-- jQuery library -->
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -26,7 +25,7 @@
 		<a class="nav-link" href="${pageContext.request.contextPath}/">홈</a>
 	</div>
 	
-	<table class="table text-center">
+	<table class="table table-bordered text-center">
 		<thead class="thead-dark">
 			<tr>
 				<th>사원 번호</th>
