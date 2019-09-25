@@ -79,6 +79,7 @@
 			<li><a href="${pageContext.request.contextPath}/salaries/SalariesStatistics">연봉 통계값 {count,sum,avg,max,min,std}</a></li>
 			<li><a href="${pageContext.request.contextPath}/employees/EmployeesCountByGender">사원 수(Gender)</a></li>
 			<li><a href="${pageContext.request.contextPath}/departments/DepartmentsCountByDeptNo">부서별 사원수</a></li>
+			<li><a href="${pageContext.request.contextPath}/employees/EmployeesListByPage">사원 목록 (페이징{10})</a></li>
 		</ul>
 	<div>
 		<form action="${pageContext.request.contextPath}/employees/EmployeesListBetween" method="post">
