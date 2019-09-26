@@ -9,6 +9,32 @@ public class EmployeesDao {
 	public EmployeesDao() { // 생성자 선언코드
 
 	}
+	//로그인 메소드
+		public String login(Employees employees) {
+			String sessionEmpNo = null;
+			Connection conn = null;
+			PreparedStatement stmt = null;
+			ResultSet rs = null;
+			String sql = "select emp_no , first_name, last_name from employees where emp_no = ? and first_name = ? and last_name= ?";
+			try {
+				conn = DBHelper.getConnection();
+				stmt = conn.prepareStatement(sql);
+				stmt.setInt(1, employees.getEmpNo());
+				stmt.setString(2, employees.getFirstName());
+				stmt.setString(3, employees.getLastName());
+				rs = stmt.executeQuery();
+					if(rs.next()) {
+						sessionEmpNo = rs.getString("emp_no");
+					}
+					
+			}catch(Exception e) {
+				e.printStackTrace();
+			}finally {
+				DBHelper.close(rs, stmt, conn);
+			}
+			return sessionEmpNo;
+		}
+	
 	//마지막 페이지 구하는 메소드
 		public int selectLastPage(int rowperPage) {
 			int lastPage = 0;
