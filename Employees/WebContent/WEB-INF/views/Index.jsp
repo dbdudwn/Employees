@@ -13,6 +13,7 @@
 
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
 <style>
 .b {
   list-style-type: square;
@@ -80,6 +81,7 @@
 			<li><a href="${pageContext.request.contextPath}/employees/EmployeesCountByGender">사원 수(Gender)</a></li>
 			<li><a href="${pageContext.request.contextPath}/departments/DepartmentsCountByDeptNo">부서별 사원수</a></li>
 			<li><a href="${pageContext.request.contextPath}/employees/EmployeesListByPage">사원 목록 (페이징{10})</a></li>
+			<li><a href="${pageContext.request.contextPath}/deptemp/DeptEmpList">사원부서 상세리스트 (페이징{10})</a></li>
 		</ul>
 	<div>
 		<form action="${pageContext.request.contextPath}/employees/EmployeesListBetween" method="post">
@@ -90,7 +92,5 @@
 	</div>
 		<h3>employees total Row Count :	${EmployeesRowCount} </h3>
 	</div>
-</body>
-</html>
 </body>
 </html>
